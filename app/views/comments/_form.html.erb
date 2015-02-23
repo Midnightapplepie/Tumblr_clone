@@ -1,0 +1,8 @@
+<h4>Say something</h4>
+<%= form_for [@article, @comment] do |form| %>
+	<%= form.label :author, "Your Name" %><br>
+	<%= form.text_field :author %><br>
+	<%= form.label :body, "Message" %><br>
+	<%= form.text_area :body %><br>
+	<%= form.submit "Speak" %>
+<% end %>

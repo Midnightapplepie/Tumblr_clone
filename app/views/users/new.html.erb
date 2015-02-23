@@ -1,0 +1,15 @@
+<div class="container-fluid full-size background-image va-m">
+<div class = "w-300px">
+	<%= form_for (@user) do |f| %>
+	  <%= f.text_field :email, placeholder: " Email" , class: "w-300px h-45px"%><br>
+	  <%= f.password_field :password_hash, placeholder: " Password", class: "w-300px h-45px" %><br>
+	  <%= f.password_field :password_confirmation, placeholder: " confirm password", class: "w-300px h-45px" %><br>
+	  <%= f.text_field :username, placeholder:" username", class: "w-300px h-45px" %><br>
+	  <%= f.submit "Submit", class: "btn btn-lg btn-info w-100pc m-tb-1em"%>
+	<% end %>
+</div>
+</div>
+
+<script type="text/javascript">
+	getBackground('.background-image')
+</script>

@@ -1,0 +1,10 @@
+<div id= <%=a.id%> class='bc-wht text-left post'>
+	<div class="fs-14px fw-bld c-lgt-grey"><%= a.user.username %></div>
+	<h2><%= a.title %></h2>
+	<p><%= a.body %></p>
+	<div class="panel panel-default">
+	<%= link_to raw("<i class='btn glyphicon glyphicon-edit'></i>"), edit_article_path(a) ,class: "fl-r"%>
+	<%= link_to raw("<i class='btn glyphicon glyphicon-trash'></i>"), article_path(a), method: :delete, 
+		data: {confirm: "destroy?"}, remote: true ,class: "fl-r" %> 
+	</div>
+</div>

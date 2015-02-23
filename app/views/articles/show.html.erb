@@ -1,0 +1,25 @@
+<div class = "page-header">
+	<h1><%= @article.title %></h1>
+</div>
+<div class = "container-fluid">
+	<div class="btn-group" role="toolbar">
+		<p>Tags:</p>
+		<% @article.tags.each do |tag| %>
+			<%= link_to tag.name, tag_path(tag), class: "btn btn-default" %>
+		<% end %>
+	</div>
+
+	<%= image_tag @article.image.url %>
+	
+	<p><%= @article.body %></p>
+
+	<%= link_to "Back to Article List", articles_path %><br>
+	<%= link_to "edit", edit_article_path(@article) %><br>
+	<%= link_to "DESTROYYYY THIS!!!", article_path(@article), method: :delete, 
+		data: {confirm: "destroy?"} %> 
+
+
+	<h3>Comments (<%= @article.comments.count %>)</h3>
+	<%= render partial: 'articles/comment', collection: @article.comments %>
+	<%= render partial: 'comments/form' %>
+</div>

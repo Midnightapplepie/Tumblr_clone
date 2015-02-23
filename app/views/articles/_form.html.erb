@@ -1,0 +1,40 @@
+<div id="new-post-form" class='d-n text-left'>
+<%= form_for (@article), remote: true do |form| %>
+	<ul>
+		<% @article.errors.full_messages.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+	<div class="fs-14px fw-bld c-lgt-grey"><%= @user.username %></div>
+	<%= form.text_field :title , placeholder: "Title" %><br>
+	<%= form.text_area :body , placeholder: "Your text here" %><br>
+	<%= form.text_field :tag_list , placeholder: "tags" %><br>
+	<br>
+	<% if @article.image.exists? %>
+		<%= image_tag @article.image.url %><br>
+	<% end %>
+	<%= form.label :image, "Add an Image" %><br>
+	<%= form.file_field :image , class: "upload-btn" %>
+ 	<div class="panel panel-default">
+ 		<i id="close-form-btn" class="btn btn-default btn-sm fl-l">Close</i>
+		<%= form.submit "Add this" , class: "btn btn-primary btn-sm fl-r d-ib m-0em", id:"new-post-btn"%>
+	</div>
+<% end %>
+</div>
+
+<script type="text/javascript">
+
+function hideForm(){
+	$('.action').show();
+		var form = $('#new-post-form')
+			form.hide(500)
+}
+
+	$('#close-form-btn').on("click",function(){
+		hideForm();
+	})
+
+	$('#new-post-btn').on("click",function(){
+		hideForm();
+	})
+</script>
