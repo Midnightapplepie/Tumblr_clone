@@ -6,13 +6,11 @@ class SessionsController < ApplicationController
 
 	def create
 		user = User.find_by(email: params[:email])
-		puts params[:email]
-		puts params[:password_hash]
-		# if user && user.authenticate(params[:password])
-		if user && user.password_hash == params[:password_hash]
+		if user && user.password == params[:password_hash]
 			session[:user_id] = user.id
 			redirect_to user_path(user)
 		else
+			flash.notice = "incorrect email or password"
 			redirect_to new_session_path
 		end
 	end

@@ -1,0 +1,8 @@
+<div class="container-fluid full-size text-center bc-main h-auto">
+	<div class="dash-board w-60pc d-ib t-100px">
+		<% user.articles.each do |a| %>
+			<%= render partial: 'post', :locals=>{a: a}%>
+		<% end %>
+	</div>
+</div>
+

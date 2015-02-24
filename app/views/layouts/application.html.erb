@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html class="full-size">
+<html>
 <head>
   <title>Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class ="full-size">
+<body>
 <nav class = "navbar navbar-default navbar-fixed-top b-c">
 	<div class = "btn d-ib fl-r navbar-btn srch-bar m-1em">
 		<span class="glyphicon glyphicon-search d-ib" aria-hidden="true"></span>
@@ -14,6 +14,7 @@
 	</div>
 	<% if current_user %>
 		<%= link_to "Log Out", session_path(current_user), :confirm => "Are you sure?", :method =>:delete, class: "btn btn-default navbar-btn fl-r d-ib m-1em"%>
+		<%= link_to raw("<i class='glyphicon glyphicon-home'></i>"), user_path(current_user), class: "btn btn-primary navbar-btn fl-r d-ib m-1em b-2px" %>
 	<% else %>
 		<%= link_to "Sign Up", new_user_path, class: "btn btn-default navbar-btn fl-r d-ib m-1em" %>
 		<%= link_to "Log In", new_session_path, class: "btn btn-default navbar-btn fl-r d-ib m-1em" %>
@@ -30,7 +31,6 @@
 	</div>
 </nav> -->
 <div class = "text-center full-size">
-		<!-- <p class = "flash"><%= flash.notice %></p> -->
 		<%= yield %>
 </div>
 </body>

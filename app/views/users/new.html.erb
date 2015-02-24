@@ -1,5 +1,6 @@
 <div class="container-fluid full-size background-image va-m">
 <div class = "w-300px">
+	<p class = "flash bc-wht"><%= flash.notice %>
 	<%= form_for (@user) do |f| %>
 	  <%= f.text_field :email, placeholder: " Email" , class: "w-300px h-45px"%><br>
 	  <%= f.password_field :password_hash, placeholder: " Password", class: "w-300px h-45px" %><br>

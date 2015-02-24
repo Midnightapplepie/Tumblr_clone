@@ -17,8 +17,9 @@ Rails.application.routes.draw do
     end
 
     resources :tags
-    resources :users, :only =>[:new, :create, :show]
+    resources :users, :only =>[:new, :create, :show, :index]
     resources :sessions, :only => [:new, :create, :destroy]
+    resources :follows, :only => [:create, :destroy, :index]
   # Example resource route with options:
   #   resources :products do
   #     member do

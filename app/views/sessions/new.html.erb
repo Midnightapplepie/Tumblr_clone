@@ -2,6 +2,7 @@
 	<div class = "w-300 d-ib">
 		<h1 class = "d-b c-w fs-40px fw-bld">tumblr. Clone</h1>
 		<div class="b-r-5px">
+			<p class = "flash bc-wht"><%= flash.notice %>
 			<%= form_tag sessions_path do %>
 			<%= text_field_tag :email, nil, placeholder: " Email", class: "w-300px h-45px"%><br>
 			<%= password_field_tag :password_hash, nil, placeholder: " Password" ,class: "w-300px h-45px"%><br>

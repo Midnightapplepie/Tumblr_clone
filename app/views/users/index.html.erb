@@ -1,0 +1,18 @@
+<div id="this" class="container-fluid full-size text-center bc-main h-auto">
+	<div id="that" class="dash-board d-ib t-100px bc-wht w-60pc">
+	<% @users.each do |user| %>
+		<div class="w-200px h-300px b-r-5px m-1em bc-main d-ib">
+			<a href="/users/<%= user.id %>" class="w-100pc h-70pc d-ib c-w fw-bld">
+				<div class="full-size va-m">
+					<%= user.username =%>
+				</div>
+			</a>
+			<% if user.follower.include?(current_user) %>
+				<%= link_to "UnFollow", follow_path("id",follower: current_user, following: user), method: :delete ,class: "btn btn-danger"%>
+			<% else %>
+				<%= link_to "Follow", follows_path(follower: current_user, following: user), method: :post, class: "btn btn-success"%>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+</div>

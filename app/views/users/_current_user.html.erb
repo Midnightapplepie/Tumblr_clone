@@ -1,0 +1,63 @@
+<div class="container-fluid full-size text-center bc-main h-auto">
+	<div class="dash-board d-ib t-100px">
+		<div id="left-dash" class="w-600px fl-l">
+			<nav id="action-bar" class="bc-wht post" >
+				<div id="links">
+					<a class="btn action" href="/articles/new">
+						<i class ="btn glyphicon glyphicon-pencil"></i><br>
+						<span>New Post</span>
+					</a>
+					<a class="btn action" href="">
+						<i class="btn glyphicon glyphicon-camera"></i><br>
+						<span>Photo</span>
+					</a>
+					<a class="btn action" href="">
+						<i class="btn">" "</i><br>
+						<span>Quote</span>
+					</a>
+					<a class="btn action" href="">
+						<i class="btn glyphicon glyphicon-link"></i><br>
+						<span>link</span>
+					</a>	
+				</div>
+				<%= render partial: 'articles/form'%>
+			</nav>
+				<div id = "post">
+					<% user.articles.each do |a| %>
+						<%= render partial: 'post', :locals=>{a: a}%>
+					<% end %>
+				</div>
+			
+		</div>
+		<div id="right-dash" class="w-225px fl-r list-group text-left">
+			<div><%= link_to user.username, user_path(user) , class: "va-ml side-links text-left"%></div>
+			<div class="va-ml side-links">
+				<div class="w-100pc">
+					<i class="glyphicon glyphicon-file"></i>    Post<span class="badge fl-r"><%=user.articles.count %></span>
+				</div>
+			</div>
+			<div class="va-ml side-links">
+				<div class="w-100pc">
+					<%= link_to raw("<i class='glyphicon glyphicon-hand-right'></i>    Following<span class='badge fl-r'>"), follows_path %>
+				</div>
+			</div>
+			<div class="va-ml side-links">
+				<%= link_to raw("<i class='glyphicon glyphicon-zoom-in'></i>    Find Blog"),users_path %>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+var links = $('.action');
+	links.on('click',function(e){
+		e.preventDefault();
+		var form =$('#new-post-form')	
+			links.hide();
+			form.slideDown(500);
+	});
+
+
+</script>
