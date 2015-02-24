@@ -26,5 +26,5 @@ def generate_post(num)
 	end
 end
 
-
-generate_post(100)
+generate_user(30)
+generate_post(200)
